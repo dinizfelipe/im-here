@@ -6,7 +6,11 @@ import { styles } from "./styles";
 
 export function Home() {
   function handleParticipantAdd() {
-    Alert.alert("Ooops!", "Você clicou no botão de adicionar.");
+    Alert.alert("Weahoo!", "Você adicionou um participante.");
+  }
+
+  function handleRemoveParticipante(name: string) {
+    Alert.alert("Oops!", ` Você acabou de remover o paricipante ${name}.`);
   }
 
   return (
@@ -26,10 +30,10 @@ export function Home() {
         </TouchableOpacity>
       </View>
 
-      <Participant name="One" />
-      <Participant name="Two" />
-      <Participant name="Three" />
-      <Participant name="Four" />
+      <Participant
+        name="One"
+        onRemove={() => handleRemoveParticipante("One")}
+      />
     </View>
   );
 }
