@@ -32,9 +32,8 @@ export function Home() {
       {
         text: "Sim",
         onPress: () =>
-          Alert.alert(
-            "Sucesso!",
-            `O participante ${name} foi removido da lista.`
+          setParticipants((oldstate) =>
+            oldstate.filter((participant) => participant !== name)
           ),
       },
       { text: "Não", style: "cancel" },
